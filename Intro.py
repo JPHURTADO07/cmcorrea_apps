@@ -23,21 +23,21 @@ with col1:
  st.image(image, width=190)
  st.write("En la siguiente enlace usaremos una de las aplicaciones de Detección de Objetos en Imágenes") 
  url = "https://yolov5-mr9nwahshc8eeaermea35t.streamlit.app/"
- st.write(f"Texto a voz: [Enlace]({url})")
+ st.write(f"Detección de Objetos en Imágenes: [Enlace]({url})")
 
  st.subheader("WordCloud Studio")
  image = Image.open('txt_to_audio.png')
  st.image(image, width=200)
  st.write("En la siguiente enlace usaremos una de las aplicaciones de WordCloud Studio.") 
  url = "https://wordcloud-dtkdpdkeljazdz2fuavsro.streamlit.app/"
- st.write(f"YOLO: [Enlace]({url})")
+ st.write(f"WordCloud Studio: [Enlace]({url})")
 
  st.subheader("Traductor")
  image = Image.open('OIG5.jpg')
  st.image(image, width=200)
  st.write("En la siguiente enlace usaremos una de las aplicaciones de Traductor.") 
  url = "https://traductor-gehpghvr9q3edfajue3bwb.streamlit.app/"
- st.write(f"YOLO: [Enlace]({url})")
+ st.write(f"Traductor: [Enlace]({url})")
 
 with col2: 
  st.subheader("Detección de Objetos en Imágenes")
