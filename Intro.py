@@ -18,25 +18,25 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
  
- st.subheader("Conversión de texto a voz")
+ st.subheader("Detección de Objetos en Imágenes")
  image = Image.open('txt_to_audio2.png')
  st.image(image, width=190)
- st.write("En la siguiente enlace usaremos una de las aplicaciones de Inteligencia Artificial") 
- url = "https://imultimod.streamlit.app/"
+ st.write("En la siguiente enlace usaremos una de las aplicaciones de Detección de Objetos en Imágenes") 
+ url = "https://yolov5-mr9nwahshc8eeaermea35t.streamlit.app/"
  st.write(f"Texto a voz: [Enlace]({url})")
 
- st.subheader("Reconocimiento de Objetos")
+ st.subheader("WordCloud Studio")
  image = Image.open('txt_to_audio.png')
  st.image(image, width=200)
- st.write("En la siguiente enlace veremos como se detectan objetos en Imágenes.") 
- url = "https://yolov5cmc.streamlit.app/"
+ st.write("En la siguiente enlace usaremos una de las aplicaciones de WordCloud Studio.") 
+ url = "https://wordcloud-dtkdpdkeljazdz2fuavsro.streamlit.app/"
  st.write(f"YOLO: [Enlace]({url})")
 
- st.subheader("Entrenando Modelos")
+ st.subheader("Traductor")
  image = Image.open('OIG5.jpg')
  st.image(image, width=200)
- st.write("En la siguiente enlace veremos como puedes usar tu modelo entrenado.") 
- url = "https://xn3pg24ztuv6fdiqon8qn3.streamlit.app/"
+ st.write("En la siguiente enlace usaremos una de las aplicaciones de Traductor.") 
+ url = "https://traductor-gehpghvr9q3edfajue3bwb.streamlit.app/"
  st.write(f"YOLO: [Enlace]({url})")
 
 with col2: 
