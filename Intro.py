@@ -41,8 +41,8 @@ APLICACIONES = [
         "modelo": "Computer Vision / YOLO"
     },
     {
-        "titulo": "a02.jpg",
-        "imagen": "txt_to_audio.png",
+        "titulo": "WordCloud Studio",
+        "imagen": "a02.jpg",
         "descripcion": "Genera nubes de palabras dinámicas a partir de textos extensos. Esta herramienta de procesamiento de lenguaje natural resalta los términos más frecuentes, facilitando el análisis visual rápido de grandes volúmenes de datos textuales.",
         "url": "https://wordcloud-dtkdpdkeljazdz2fuavsro.streamlit.app/",
         "categoria": "Procesamiento de Lenguaje",
