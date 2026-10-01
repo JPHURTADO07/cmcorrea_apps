@@ -83,28 +83,13 @@ with col3:
  st.write("En la siguiente enlace veremos la Mi Primera App.") 
  url = "https://ilydbjwqwuydndt4dyagxj.streamlit.app/"
  st.write(f"Mi Primera App: [Enlace]({url})")
-  
 
-with col4: 
- st.subheader("Reconocimiento óptico de Caracteres")
- image = Image.open('Chat_pdf.png')
- st.image(image, width=190)
- st.write("En la siguiente veremos una aplicación que Reconocimiento óptico de Caracteres.") 
- url = "https://5bo3dkbndniywucgnecrzc.streamlit.app/"
- st.write(f"Reconocimiento óptico de Caracteres: [Enlace]({url})")
-
- st.subheader("Agente de IA")
- image = Image.open('OIG4.jpg')
- st.image(image, width=200)
- st.write("En la siguiente enlace veremos la Agente de IA.") 
- url = "https://juanitakush-xwdjdbylj9wl9nttmyc6gl.streamlit.app/"
- st.write(f"Agente de IA: [Enlace]({url})")
- 
  st.subheader("Mi Primera App")
  image = Image.open('OIG6.jpg')
  st.image(image, width=200)
  st.write("En la siguiente enlace veremos la Mi Primera App.") 
  url = "https://ilydbjwqwuydndt4dyagxj.streamlit.app/"
  st.write(f"Mi Primera App: [Enlace]({url})")
+
 
 
