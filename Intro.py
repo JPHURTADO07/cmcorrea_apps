@@ -136,7 +136,7 @@ with st.sidebar:
 
 # --- CONTENIDO PRINCIPAL ---
 # 1. Banner Superior (Usa una imagen existente, luego la puedes cambiar)
-cargar_imagen("OIG8.jpg")
+cargar_imagen("a1.jpg")
 
 st.title("Hub de Aplicaciones Inteligentes")
 st.markdown("Explora el potencial del Machine Learning a través de estas herramientas interactivas.")
