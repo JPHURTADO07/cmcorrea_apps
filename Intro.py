@@ -40,26 +40,26 @@ with col1:
  st.write(f"Traductor: [Enlace]({url})")
 
 with col2: 
- st.subheader("Detección de Objetos en Imágenes")
+ st.subheader("Demo TF-IDF en Español")
  image = Image.open('OIG8.jpg')
  st.image(image, width=200)
- st.write("En la siguiente veremos una aplicación que usa la detección de objetos en imágenes.") 
- url = "https://yolov5-mr9nwahshc8eeaermea35t.streamlit.app/"
- st.write(f"Voz a texto: [Enlace]({url})")
+ st.write("En la siguiente veremos una aplicación que usa lDemo TF-IDF en Español.") 
+ url = "https://tdfesp-xurouaqeyqepm4whrlpzwy.streamlit.app/"
+ st.write(f"Demo TF-IDF en Español: [Enlace]({url})")
 
- st.subheader("Análisis de Datos")
+ st.subheader("Análisis de Sentimiento")
  image = Image.open('data_analisis.png')
  st.image(image, width=190)
- st.write("En la siguiente enlace veremos como se pueden analizar datos usando agentes.") 
- url = "https://dataagente.streamlit.app/"
- st.write(f"Datos: [Enlace]({url})")
+ st.write("En la siguiente enlace veremos como se pueden analizar Análisis de Sentimiento.") 
+ url = "https://sentimenta-mcwscyx7txyocfmduonoe6.streamlit.app/"
+ st.write(f"Análisis de Sentimiento: [Enlace]({url})")
 
- st.subheader("Trasnscriptor Audio y Video")
+ st.subheader("Traductor de Imágenes")
  image = Image.open('OIG3.jpg')
  st.image(image, width=200)
- st.write("En la siguiente enlace veremos como realizamos transcripciones de audio/video.") 
- url = "https://transcript-whisper.streamlit.app/"
- st.write(f"Transcriptor: [Enlace]({url})")
+ st.write("En la siguiente enlace veremos como realizamos Traductor de Imágenes.") 
+ url = "https://ocr-audio-33nfniq7a3tpyftdjgko4k.streamlit.app/"
+ st.write(f"Traductor de Imágenes: [Enlace]({url})")
 
 
 with col3: 
