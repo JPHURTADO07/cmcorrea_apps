@@ -2,199 +2,186 @@ import streamlit as st
 from PIL import Image
 import os
 
-# 1. Configuración de página (Debe ser la primera línea)
+# 1. Configuración inicial de la página
 st.set_page_config(
-    page_title="Hub de Inteligencia Artificial",
-    page_icon="🧠",
+    page_title="Portafolio de IA",
+    page_icon="🤖",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# 2. Base de datos de aplicaciones ampliada con metadatos técnicos (Lógica IA)
+# 2. Inyección de CSS para quitar el arcoíris y usar tema Azul
+st.markdown("""
+    <style>
+    /* Cambiar la barra superior de Streamlit (arcoíris) a un gradiente azul moderno */
+    [data-testid="stDecoration"] {
+        background-image: linear-gradient(90deg, #00416A, #E4E5E6);
+        background: linear-gradient(90deg, #0052D4, #4364F7, #6FB1FC);
+    }
+    /* Hacer que todas las líneas separadoras sean de color azul */
+    hr {
+        border-bottom: 2px solid #4364F7 !important;
+    }
+    /* Estilizar sutilmente los botones de enlace */
+    .stLinkButton > a {
+        border-color: #4364F7 !important;
+        color: #0052D4 !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# 3. Base de datos con descripciones extendidas y coherentes
 APLICACIONES = [
     {
         "titulo": "Detección de Objetos",
         "imagen": "txt_to_audio2.png",
-        "descripcion": "En el siguiente enlace usaremos una de las aplicaciones de Detección de Objetos en Imágenes.",
+        "descripcion": "Esta aplicación utiliza redes neuronales convolucionales para identificar y localizar múltiples objetos dentro de una imagen en tiempo real, trazando cajas delimitadoras con sus respectivas etiquetas y niveles de confianza.",
         "url": "https://yolov5-mr9nwahshc8eeaermea35t.streamlit.app/",
         "categoria": "Visión por Computadora",
-        "modelo": "YOLOv5",
-        "estado": "En línea 🟢"
+        "modelo": "Computer Vision / YOLO"
     },
     {
         "titulo": "WordCloud Studio",
         "imagen": "txt_to_audio.png",
-        "descripcion": "En el siguiente enlace usaremos una de las aplicaciones de WordCloud Studio.",
+        "descripcion": "Genera nubes de palabras dinámicas a partir de textos extensos. Esta herramienta de procesamiento de lenguaje natural resalta los términos más frecuentes, facilitando el análisis visual rápido de grandes volúmenes de datos textuales.",
         "url": "https://wordcloud-dtkdpdkeljazdz2fuavsro.streamlit.app/",
         "categoria": "Procesamiento de Lenguaje",
-        "modelo": "NLP Clásico",
-        "estado": "En línea 🟢"
+        "modelo": "NLP / Data Viz"
     },
     {
-        "titulo": "Traductor",
+        "titulo": "Traductor Neuronal",
         "imagen": "OIG5.jpg",
-        "descripcion": "En el siguiente enlace usaremos una de las aplicaciones de Traductor.",
+        "descripcion": "Rompe las barreras del idioma con esta herramienta de traducción automática. Capaz de interpretar y convertir texto entre múltiples idiomas con alta precisión, conservando el contexto y la semántica original de las oraciones.",
         "url": "https://traductor-gehpghvr9q3edfajue3bwb.streamlit.app/",
         "categoria": "Procesamiento de Lenguaje",
-        "modelo": "Transformer",
-        "estado": "En línea 🟢"
+        "modelo": "Sequence-to-Sequence"
     },
     {
-        "titulo": "Demo TF-IDF Español",
+        "titulo": "Demo TF-IDF en Español",
         "imagen": "OIG8.jpg",
-        "descripcion": "En la siguiente veremos una aplicación que usa la Demo TF-IDF en Español.",
+        "descripcion": "Descubre la relevancia de las palabras en tus documentos. Esta aplicación implementa el algoritmo TF-IDF para extraer conceptos clave y analizar la importancia relativa de los términos en un corpus específico de textos en español.",
         "url": "https://tdfesp-xurouaqeyqepm4whrlpzwy.streamlit.app/",
         "categoria": "Procesamiento de Lenguaje",
-        "modelo": "Scikit-Learn",
-        "estado": "En línea 🟢"
+        "modelo": "Information Retrieval"
     },
     {
         "titulo": "Análisis de Sentimiento",
         "imagen": "data_analisis.png",
-        "descripcion": "En el siguiente enlace veremos como se puede hacer Análisis de Sentimiento.",
+        "descripcion": "Evalúa el tono emocional detrás de las palabras. Esta herramienta clasifica textos según su polaridad (positiva, negativa o neutral), siendo ideal para analizar opiniones de usuarios o interacciones masivas en redes sociales.",
         "url": "https://sentimenta-mcwscyx7txyocfmduonoe6.streamlit.app/",
         "categoria": "Procesamiento de Lenguaje",
-        "modelo": "VADER / BERT",
-        "estado": "En línea 🟢"
+        "modelo": "Clasificación de Texto"
     },
     {
         "titulo": "Traductor de Imágenes",
         "imagen": "OIG3.jpg",
-        "descripcion": "En el siguiente enlace veremos como realizamos el Traductor de Imágenes.",
+        "descripcion": "Combina tecnología OCR con modelos de traducción automática. Al subir una imagen que contenga texto en otro idioma, la aplicación extrae los caracteres procesables y los traduce instantáneamente a tu idioma de preferencia.",
         "url": "https://ocr-audio-33nfniq7a3tpyftdjgko4k.streamlit.app/",
         "categoria": "Visión por Computadora",
-        "modelo": "OCR + NLP",
-        "estado": "En línea 🟢"
+        "modelo": "OCR + Translation"
     },
     {
-        "titulo": "Reconocimiento Óptico",
+        "titulo": "Reconocimiento Óptico (OCR)",
         "imagen": "Chat_pdf.png",
-        "descripcion": "En la siguiente veremos una aplicación de Reconocimiento óptico de Caracteres.",
+        "descripcion": "Digitaliza texto impreso o escrito con facilidad. Esta herramienta extrae la información contenida en imágenes o documentos escaneados, transformándolos en texto completamente editable mediante algoritmos de visión artificial.",
         "url": "https://5bo3dkbndniywucgnecrzc.streamlit.app/",
         "categoria": "Visión por Computadora",
-        "modelo": "Tesseract",
-        "estado": "En línea 🟢"
+        "modelo": "Optical Character Recognition"
     },
     {
         "titulo": "Agente de IA",
         "imagen": "OIG4.jpg",
-        "descripcion": "En el siguiente enlace veremos al Agente de IA en acción.",
+        "descripcion": "Interactúa con un asistente virtual impulsado por modelos de lenguaje grande (LLM). Este agente está diseñado para comprender intenciones, mantener el contexto de la conversación y resolver consultas complejas de manera natural.",
         "url": "https://juanitakush-xwdjdbylj9wl9nttmyc6gl.streamlit.app/",
         "categoria": "Asistentes Virtuales",
-        "modelo": "LLM Generativo",
-        "estado": "En línea 🟢"
+        "modelo": "LLM / Conversational"
     },
     {
-        "titulo": "Mi Primera App",
+        "titulo": "Mi Primera App IA",
         "imagen": "OIG6.jpg",
-        "descripcion": "En el siguiente enlace veremos Mi Primera App.",
+        "descripcion": "Un espacio de experimentación y prueba de conceptos básicos. Aquí se exploran integraciones iniciales de modelos de machine learning y estructuras de interfaz, sentando las bases para aplicaciones interactivas más robustas.",
         "url": "https://ilydbjwqwuydndt4dyagxj.streamlit.app/",
         "categoria": "Otros",
-        "modelo": "Básico",
-        "estado": "Mantenimiento 🟡"
+        "modelo": "Prototipo Base"
     }
 ]
 
-# Función robusta para cargar imágenes
-def cargar_imagen(ruta, usar_ancho_completo=False):
+# Función para cargar imágenes de forma segura
+def cargar_imagen(ruta):
     try:
         if os.path.exists(ruta):
             img = Image.open(ruta)
-            st.image(img, use_container_width=usar_ancho_completo)
+            # use_container_width hace que la imagen se adapte perfectamente al ancho de la caja
+            st.image(img, use_container_width=True)
         else:
-            # Placeholder si no encuentra la imagen
-            st.info(f"🖼️️ Imagen pendiente: {ruta}")
+            st.info(f"🖼️ Espacio para imagen: {ruta}")
     except Exception:
         st.error("Error al cargar la imagen.")
 
-# --- 1. BANNER SUPERIOR ---
-# Usamos 'OIG8.jpg' temporalmente como portada. Ajustado al ancho completo.
-cargar_imagen('OIG8.jpg', usar_ancho_completo=True)
-
-# --- 2. ENCABEZADO Y PANEL DE MÉTRICAS (Lógica de Dashboard IA) ---
-st.title("🤖 Hub Central de Modelos de Inteligencia Artificial")
-st.markdown("*Plataforma integral para explorar, analizar y ejecutar modelos de Machine Learning interactivos.*")
-
-# Métricas que dan un aspecto muy profesional y analítico
-col_m1, col_m2, col_m3, col_m4 = st.columns(4)
-col_m1.metric(label="Modelos Desplegados", value=f"{len(APLICACIONES)}", delta="Operativos")
-col_m2.metric(label="Visión por Computadora", value="3", delta="GPUs Activas")
-col_m3.metric(label="Procesamiento de Lenguaje", value="4", delta="Latencia < 50ms")
-col_m4.metric(label="Estado del Servidor", value="Óptimo", delta="AWS US-East", delta_color="normal")
-
-st.divider()
-
-# --- 3. BARRA LATERAL (FILTROS Y CONTEXTO) ---
+# --- BARRA LATERAL ---
 with st.sidebar:
-    st.title("⚙️ Panel de Control")
-    st.info(
+    st.title("🤖 Explorador de IA")
+    
+    parrafo = (
         "La inteligencia artificial permite mejorar la toma de decisiones con el uso de datos, "
         "automatizar tareas rutinarias y proporcionar análisis avanzados en tiempo real."
     )
+    st.info(parrafo)
     
     st.divider()
-    st.subheader("Búsqueda Avanzada")
     
-    # Campo de texto para buscar
-    busqueda_texto = st.text_input("🔍 Buscar por nombre:", "").lower()
-    
-    # Selector de categorías
+    st.subheader("Filtros de Búsqueda")
     categorias_unicas = ["Todas"] + list(set(app["categoria"] for app in APLICACIONES))
-    categoria_seleccionada = st.selectbox("📌 Filtrar por arquitectura:", categorias_unicas)
+    categoria_seleccionada = st.selectbox("Selecciona una categoría:", categorias_unicas)
 
-# --- 4. ORGANIZACIÓN EN PESTAÑAS (TABS) ---
-tab_apps, tab_docs, tab_recursos = st.tabs(["🚀 Explorar Modelos", "🧠 Arquitectura de IA", "📚 Enlaces Externos"])
+# --- CONTENIDO PRINCIPAL ---
+# 1. Banner Superior (Usa una imagen existente, luego la puedes cambiar)
+cargar_imagen("OIG8.jpg")
 
-# PESTAÑA PRINCIPAL: LAS TARJETAS UNIFORMES
-with tab_apps:
-    # Lógica de filtrado combinada (Texto + Categoría)
-    apps_filtradas = APLICACIONES
-    if categoria_seleccionada != "Todas":
-        apps_filtradas = [app for app in apps_filtradas if app["categoria"] == categoria_seleccionada]
-    if busqueda_texto:
-        apps_filtradas = [app for app in apps_filtradas if busqueda_texto in app["titulo"].lower()]
+st.title("Hub de Aplicaciones Inteligentes")
+st.markdown("Explora el potencial del Machine Learning a través de estas herramientas interactivas.")
 
-    if not apps_filtradas:
-        st.warning("Ningún modelo coincide con los parámetros de búsqueda.")
-    else:
+# 2. Panel de Métricas (Le da un aspecto muy pro/dashboard)
+col_m1, col_m2, col_m3 = st.columns(3)
+col_m1.metric("Aplicaciones Activas", len(APLICACIONES))
+col_m2.metric("Estado del Sistema", "Online 🟢")
+col_m3.metric("Última Actualización", "Hoy")
+
+st.divider()
+
+url_ia = "https://sites.google.com/view/aplicacionesdeia/inicio"
+st.success(f"📚 **Recurso destacado:** En el siguiente enlace puedes encontrar más documentación y ejercicios prácticos. [Ir al sitio web]({url_ia})")
+
+# --- RENDERIZADO DE LAS TARJETAS (CUADROS UNIFORMES) ---
+apps_filtradas = APLICACIONES
+if categoria_seleccionada != "Todas":
+    apps_filtradas = [app for app in APLICACIONES if app["categoria"] == categoria_seleccionada]
+
+if not apps_filtradas:
+    st.warning("No se encontraron aplicaciones en esta categoría.")
+else:
+    # Agrupamos en pestañas para mayor orden (opcional, pero se ve muy bien)
+    tab1, tab2 = st.tabs(["Vista de Cuadrícula", "Vista de Lista"])
+    
+    with tab1:
         columnas = st.columns(3)
         for index, app in enumerate(apps_filtradas):
-            col = columnas[index % 3] 
+            col = columnas[index % 3]
+            
             with col:
-                # SOLUCIÓN DE TAMAÑO: height=450 fuerza a que todos los cuadros midan exactamente lo mismo
-                with st.container(border=True, height=460):
-                    st.subheader(app["titulo"], divider="rainbow")
-                    
-                    # Imagen ajustada al contenedor para mantener proporciones
-                    cargar_imagen(app["imagen"], usar_ancho_completo=True)
-                    
-                    # Badges técnicos
-                    st.caption(f"⚙️ **{app['modelo']}** | {app['estado']}")
-                    
-                    # Descripción
+                # height=530 asegura que todas las cajas midan exactamente lo mismo
+                # Si el texto es más largo, Streamlit pone un scroll interno muy sutil
+                with st.container(border=True, height=530):
+                    st.subheader(app["titulo"])
+                    st.caption(f"⚙️ {app['modelo']}") # Agrega la etiqueta técnica
+                    cargar_imagen(app["imagen"])
                     st.write(app["descripcion"])
+                    st.link_button("Abrir aplicación ↗", app["url"], use_container_width=True)
                     
-                    # Botón en la parte inferior de la tarjeta
-                    st.link_button(f"Ejecutar Modelo ↗", app["url"], use_container_width=True)
-
-# PESTAÑA DE DOCUMENTACIÓN (Lógica Educativa)
-with tab_docs:
-    st.header("Diccionario de Tecnologías Aplicadas")
-    colA, colB = st.columns(2)
-    with colA:
-        with st.expander("👁️ Visión por Computadora (CV)", expanded=True):
-            st.write("Disciplina que permite a las computadoras extraer información de imágenes y videos. Usamos modelos como **YOLO** (You Only Look Once) para detección de objetos en tiempo real y **Tesseract OCR** para extraer texto de imágenes.")
-    with colB:
-        with st.expander("🗣️ Procesamiento de Lenguaje Natural (NLP)", expanded=True):
-            st.write("Rama que permite a las máquinas entender el lenguaje humano. Utilizamos técnicas de vectorización como **TF-IDF** y modelos basados en **Transformers** para traducir textos y analizar sentimientos en fracciones de segundo.")
-
-# PESTAÑA DE RECURSOS (Tu enlace original)
-with tab_recursos:
-    st.header("Plataforma Principal de Aprendizaje")
-    url_ia = "https://sites.google.com/view/aplicacionesdeia/inicio"
-    
-    st.info("💡 En nuestro portal principal encontrarás teoría profunda, tutoriales paso a paso y más ejercicios prácticos diseñados para reforzar tus conocimientos de IA.")
-    st.link_button("🌐 Visitar la Página Web y Ejercicios", url_ia, type="primary")
-
-# --- FOOTER ---
-st.markdown("<br><hr><center><p style='color:gray;'>Sistema Centralizado de Despliegue de IA • 2024</p></center>", unsafe_allow_html=True)
+    with tab2:
+        # Una vista alternativa simple por si el usuario prefiere leer en lista
+        for app in apps_filtradas:
+            with st.container(border=True):
+                st.markdown(f"### {app['titulo']} - `{app['modelo']}`")
+                st.write(app["descripcion"])
+                st.link_button("Acceder ↗", app["url"])
