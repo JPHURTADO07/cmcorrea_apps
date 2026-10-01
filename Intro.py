@@ -58,7 +58,7 @@ APLICACIONES = [
     },
     {
         "titulo": "Demo TF-IDF en Español",
-        "imagen": "OIG8.jpg",
+        "imagen": "a04.jpg",
         "descripcion": "Descubre la relevancia de las palabras en tus documentos. Esta aplicación implementa el algoritmo TF-IDF para extraer conceptos clave y analizar la importancia relativa de los términos en un corpus específico de textos en español.",
         "url": "https://tdfesp-xurouaqeyqepm4whrlpzwy.streamlit.app/",
         "categoria": "Procesamiento de Lenguaje",
@@ -66,7 +66,7 @@ APLICACIONES = [
     },
     {
         "titulo": "Análisis de Sentimiento",
-        "imagen": "data_analisis.png",
+        "imagen": "a05.jpg",
         "descripcion": "Evalúa el tono emocional detrás de las palabras. Esta herramienta clasifica textos según su polaridad (positiva, negativa o neutral), siendo ideal para analizar opiniones de usuarios o interacciones masivas en redes sociales.",
         "url": "https://sentimenta-mcwscyx7txyocfmduonoe6.streamlit.app/",
         "categoria": "Procesamiento de Lenguaje",
@@ -74,7 +74,7 @@ APLICACIONES = [
     },
     {
         "titulo": "Traductor de Imágenes",
-        "imagen": "OIG3.jpg",
+        "imagen": "a06.jpg",
         "descripcion": "Combina tecnología OCR con modelos de traducción automática. Al subir una imagen que contenga texto en otro idioma, la aplicación extrae los caracteres procesables y los traduce instantáneamente a tu idioma de preferencia.",
         "url": "https://ocr-audio-33nfniq7a3tpyftdjgko4k.streamlit.app/",
         "categoria": "Visión por Computadora",
@@ -82,7 +82,7 @@ APLICACIONES = [
     },
     {
         "titulo": "Reconocimiento Óptico (OCR)",
-        "imagen": "Chat_pdf.png",
+        "imagen": "a07.jpg",
         "descripcion": "Digitaliza texto impreso o escrito con facilidad. Esta herramienta extrae la información contenida en imágenes o documentos escaneados, transformándolos en texto completamente editable mediante algoritmos de visión artificial.",
         "url": "https://5bo3dkbndniywucgnecrzc.streamlit.app/",
         "categoria": "Visión por Computadora",
@@ -90,7 +90,7 @@ APLICACIONES = [
     },
     {
         "titulo": "Agente de IA",
-        "imagen": "OIG4.jpg",
+        "imagen": "a08.jpg",
         "descripcion": "Interactúa con un asistente virtual impulsado por modelos de lenguaje grande (LLM). Este agente está diseñado para comprender intenciones, mantener el contexto de la conversación y resolver consultas complejas de manera natural.",
         "url": "https://juanitakush-xwdjdbylj9wl9nttmyc6gl.streamlit.app/",
         "categoria": "Asistentes Virtuales",
@@ -98,7 +98,7 @@ APLICACIONES = [
     },
     {
         "titulo": "Mi Primera App IA",
-        "imagen": "OIG6.jpg",
+        "imagen": "a09.jpg",
         "descripcion": "Un espacio de experimentación y prueba de conceptos básicos. Aquí se exploran integraciones iniciales de modelos de machine learning y estructuras de interfaz, sentando las bases para aplicaciones interactivas más robustas.",
         "url": "https://ilydbjwqwuydndt4dyagxj.streamlit.app/",
         "categoria": "Otros",
