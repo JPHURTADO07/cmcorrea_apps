@@ -34,14 +34,14 @@ st.markdown("""
 APLICACIONES = [
     {
         "titulo": "Detección de Objetos",
-        "imagen": "txt_to_audio2.png",
+        "imagen": "a01.jpg",
         "descripcion": "Esta aplicación utiliza redes neuronales convolucionales para identificar y localizar múltiples objetos dentro de una imagen en tiempo real, trazando cajas delimitadoras con sus respectivas etiquetas y niveles de confianza.",
         "url": "https://yolov5-mr9nwahshc8eeaermea35t.streamlit.app/",
         "categoria": "Visión por Computadora",
         "modelo": "Computer Vision / YOLO"
     },
     {
-        "titulo": "WordCloud Studio",
+        "titulo": "a02.jpg",
         "imagen": "txt_to_audio.png",
         "descripcion": "Genera nubes de palabras dinámicas a partir de textos extensos. Esta herramienta de procesamiento de lenguaje natural resalta los términos más frecuentes, facilitando el análisis visual rápido de grandes volúmenes de datos textuales.",
         "url": "https://wordcloud-dtkdpdkeljazdz2fuavsro.streamlit.app/",
@@ -50,7 +50,7 @@ APLICACIONES = [
     },
     {
         "titulo": "Traductor Neuronal",
-        "imagen": "OIG5.jpg",
+        "imagen": "a03.jpg",
         "descripcion": "Rompe las barreras del idioma con esta herramienta de traducción automática. Capaz de interpretar y convertir texto entre múltiples idiomas con alta precisión, conservando el contexto y la semántica original de las oraciones.",
         "url": "https://traductor-gehpghvr9q3edfajue3bwb.streamlit.app/",
         "categoria": "Procesamiento de Lenguaje",
