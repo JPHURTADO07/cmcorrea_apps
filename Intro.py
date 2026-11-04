@@ -55,12 +55,13 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 3. Mensaje de bienvenida
+# 3. Mensaje de bienvenida (solo se muestra una vez por sesión)
 if 'bienvenida' not in st.session_state:
     st.toast("¡Bienvenido al Portafolio Interactivo de Juan Pablo!", icon="🚀")
     st.session_state.bienvenida = True
 
 # 4. Bases de datos de aplicaciones
+# --- ETAPA 1 ---
 APLICACIONES = [
     {"titulo": "Detección de Objetos", "imagen": "a01.jpg", "descripcion": "Esta aplicación utiliza redes neuronales convolucionales para identificar y localizar múltiples objetos dentro de una imagen en tiempo real, trazando cajas delimitadoras con sus respectivas etiquetas y niveles de confianza.", "url": "https://yolov5-mr9nwahshc8eeaermea35t.streamlit.app/", "categoria": "Visión por Computadora", "modelo": "Computer Vision / YOLO"},
     {"titulo": "WordCloud Studio", "imagen": "a02.jpg", "descripcion": "Genera nubes de palabras dinámicas a partir de textos extensos. Esta herramienta de procesamiento de lenguaje natural resalta los términos más frecuentes, facilitando el análisis visual rápido de grandes volúmenes de datos textuales.", "url": "https://wordcloud-dtkdpdkeljazdz2fuavsro.streamlit.app/", "categoria": "Procesamiento de Lenguaje", "modelo": "NLP / Data Viz"},
@@ -75,30 +76,28 @@ APLICACIONES = [
 
 # --- FASE 2: Nuevas Aplicaciones ---
 NUEVAS_APLICACIONES = [
-    {"titulo": "Lector de Sensor MQTT", "imagen": "https://via.placeholder.com/400x250.png?text=Banner+MQTT+Lector", "descripcion": "Visualiza y monitorea en tiempo real los datos provenientes de sensores conectados a través del protocolo MQTT, ideal para proyectos de IoT e instalaciones interactivas.", "url": "https://recepmqtt-hcxbmvryempp4dfeik8mht.streamlit.app/", "modelo": "IoT / Data Stream"},
-    {"titulo": "Interfaces Control por Voz", "imagen": "https://via.placeholder.com/400x250.png?text=Banner+Control+Voz", "descripcion": "Controla aplicaciones utilizando comandos de voz. Este sistema multimodal permite interactuar con plataformas sin necesidad de contacto físico (hands-free).", "url": "https://ctrlvoice-ghqlc7cjicvoxnltwecxlx.streamlit.app/", "modelo": "Speech-to-Text / Multimodal"},
-    {"titulo": "MQTT Control", "imagen": "https://via.placeholder.com/400x250.png?text=Banner+MQTT+Control", "descripcion": "Panel interactivo para el envío de comandos y control de hardware a distancia utilizando la mensajería ligera del protocolo MQTT.", "url": "https://sendcmqtt-fgebaqgmgss8nfwcmpmbzp.streamlit.app/", "modelo": "IoT / Control Dashboard"},
-    {"titulo": "Análisis de Imagen", "imagen": "https://via.placeholder.com/400x250.png?text=Banner+Vision+App", "descripcion": "Sube tus imágenes y permite que los algoritmos de visión extraigan datos, identifiquen patrones visuales y generen conclusiones descriptivas del contenido.", "url": "https://visionapp-n9t4tuy5ji64mjfqnfzcnm.streamlit.app/", "modelo": "Computer Vision / Analysis"},
-    {"titulo": "Descubre el Arte del Buen Comer", "imagen": "https://via.placeholder.com/400x250.png?text=Banner+Buen+Comer", "descripcion": "Asistente culinario basado en IA que analiza documentos (ChatPDF) para extraer recetas, técnicas y conocimientos de la tradición gastronómica.", "url": "https://chatpdf-tpyrd2q5na79ehnvrczjfl.streamlit.app/", "modelo": "RAG / ChatPDF"},
-    {"titulo": "Tablero para Dibujo", "imagen": "https://via.placeholder.com/400x250.png?text=Banner+Tablero+Dibujo", "descripcion": "Lienzo digital interactivo donde puedes realizar trazos libres, ideal como módulo de entrada para posteriores modelos de reconocimiento visual.", "url": "https://tableropropio-8h7spabo2dpnc7pkmzrf32.streamlit.app/", "modelo": "UI Canvas / Interacción"},
-    {"titulo": "Tablero Inteligente", "imagen": "https://via.placeholder.com/400x250.png?text=Banner+Tablero+IA", "descripcion": "Lienzo de dibujo potenciado con IA, capaz de capturar tus trazos en tiempo real para que los modelos de machine learning interpreten tus bocetos.", "url": "https://drawrecog-8dmelrpjrnneydubuhsqih.streamlit.app/", "modelo": "Sketch Recognition"},
-    {"titulo": "Detección de Dígitos a Mano", "imagen": "https://via.placeholder.com/400x250.png?text=Banner+MNIST", "descripcion": "Dibuja un número y deja que la red neuronal lo clasifique. Utiliza el clásico dataset MNIST para demostrar la precisión de la detección en tiempo real.", "url": "https://mnistpred-93wuranhxyualbnjkppjdr.streamlit.app/", "modelo": "CNN / MNIST"},
-    {"titulo": "Cuentos Mágicos: Dibuja tu Historia", "imagen": "https://via.placeholder.com/400x250.png?text=Banner+Cuentos+Magicos", "descripcion": "Transforma tus bocetos en narrativas. La inteligencia artificial interpreta lo que dibujas para generar un cuento infantil original y creativo.", "url": "https://drawrecog-5efmiswovqrw78sawxtkpp.streamlit.app/", "modelo": "Vision + LLM Generative"}
+    {"titulo": "Lector de Sensor MQTT", "imagen": "img01.jpg", "descripcion": "Visualiza y monitorea en tiempo real los datos provenientes de sensores conectados a través del protocolo MQTT, ideal para proyectos de IoT e instalaciones interactivas.", "url": "https://recepmqtt-hcxbmvryempp4dfeik8mht.streamlit.app/", "modelo": "IoT / Data Stream"},
+    {"titulo": "Interfaces Control por Voz", "imagen": "img02.jpg", "descripcion": "Controla aplicaciones utilizando comandos de voz. Este sistema multimodal permite interactuar con plataformas sin necesidad de contacto físico (hands-free).", "url": "https://ctrlvoice-ghqlc7cjicvoxnltwecxlx.streamlit.app/", "modelo": "Speech-to-Text / Multimodal"},
+    {"titulo": "MQTT Control", "imagen": "img03.jpg", "descripcion": "Panel interactivo para el envío de comandos y control de hardware a distancia utilizando la mensajería ligera del protocolo MQTT.", "url": "https://sendcmqtt-fgebaqgmgss8nfwcmpmbzp.streamlit.app/", "modelo": "IoT / Control Dashboard"},
+    {"titulo": "Análisis de Imagen", "imagen": "img04.jpg", "descripcion": "Sube tus imágenes y permite que los algoritmos de visión extraigan datos, identifiquen patrones visuales y generen conclusiones descriptivas del contenido.", "url": "https://visionapp-n9t4tuy5ji64mjfqnfzcnm.streamlit.app/", "modelo": "Computer Vision / Analysis"},
+    {"titulo": "Descubre el Arte del Buen Comer", "imagen": "img05.jpg", "descripcion": "Asistente culinario basado en IA que analiza documentos (ChatPDF) para extraer recetas, técnicas y conocimientos de la tradición gastronómica.", "url": "https://chatpdf-tpyrd2q5na79ehnvrczjfl.streamlit.app/", "modelo": "RAG / ChatPDF"},
+    {"titulo": "Tablero para Dibujo", "imagen": "img06.jpg", "descripcion": "Lienzo digital interactivo donde puedes realizar trazos libres, ideal como módulo de entrada para posteriores modelos de reconocimiento visual.", "url": "https://tableropropio-8h7spabo2dpnc7pkmzrf32.streamlit.app/", "modelo": "UI Canvas / Interacción"},
+    {"titulo": "Tablero Inteligente", "imagen": "img07.jpg", "descripcion": "Lienzo de dibujo potenciado con IA, capaz de capturar tus trazos en tiempo real para que los modelos de machine learning interpreten tus bocetos.", "url": "https://drawrecog-8dmelrpjrnneydubuhsqih.streamlit.app/", "modelo": "Sketch Recognition"},
+    {"titulo": "Detección de Dígitos a Mano", "imagen": "img08.jpg", "descripcion": "Dibuja un número y deja que la red neuronal lo clasifique. Utiliza el clásico dataset MNIST para demostrar la precisión de la detección en tiempo real.", "url": "https://mnistpred-93wuranhxyualbnjkppjdr.streamlit.app/", "modelo": "CNN / MNIST"},
+    {"titulo": "Cuentos Mágicos: Dibuja tu Historia", "imagen": "img09.jpg", "descripcion": "Transforma tus bocetos en narrativas. La inteligencia artificial interpreta lo que dibujas para generar un cuento infantil original y creativo.", "url": "https://drawrecog-5efmiswovqrw78sawxtkpp.streamlit.app/", "modelo": "Vision + LLM Generative"}
 ]
 
 def cargar_imagen(ruta):
     try:
-        # Si la ruta es un link http (como nuestros placeholders de la fase 2)
         if ruta.startswith("http"):
             st.image(ruta, use_container_width=True)
-        # Si es un archivo local
         elif os.path.exists(ruta):
             img = Image.open(ruta)
             st.image(img, use_container_width=True)
         else:
-            st.info(f"🖼️ Espacio para imagen: {ruta}")
+            st.info(f"🖼️ Espacio reservado para imagen: {ruta}")
     except Exception:
-        st.error("Error al cargar la imagen.")
+        st.error(f"Error al cargar la imagen: {ruta}")
 
 # --- BARRA LATERAL ---
 with st.sidebar:
@@ -129,7 +128,7 @@ with st.sidebar:
     """, unsafe_allow_html=True)
 
 # --- CONTENIDO PRINCIPAL: ETAPA 1 ---
-cargar_imagen("a1.jpg") # Tu banner principal (si lo tienes local)
+cargar_imagen("a1.jpg") # Banner principal superior
 
 st.title("Hub de Aplicaciones Inteligentes")
 st.markdown("Explora el potencial del Machine Learning, la Visión Artificial y el Procesamiento de Lenguaje Natural a través de estas herramientas interactivas.")
@@ -205,7 +204,7 @@ else:
             with st.container(border=True, height=520):
                 st.subheader(app["titulo"])
                 st.caption(f"💡 {app['modelo']}")
-                cargar_imagen(app["imagen"]) # Usará el placeholder de internet
+                cargar_imagen(app["imagen"])
                 st.write(app["descripcion"])
                 st.link_button("Probar Proyecto ↗", app["url"], use_container_width=True)
 
